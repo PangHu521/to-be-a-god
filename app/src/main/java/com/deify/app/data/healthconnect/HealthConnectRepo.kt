@@ -76,7 +76,7 @@ class HealthConnectRepo(private val context: Context) {
             ReadRecordsRequest(
                 recordType = WeightRecord::class,
                 timeRangeFilter = TimeRangeFilter.between(thirtyDaysAgo, now),
-                limit = 1
+                pageSize = 1
             )
         )
         return response.records.firstOrNull()
