@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 纯本地App, 无网络权限 -->
+
+    <!-- BLE 心率扫描 (不请求位置权限) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+
+    <!-- 前台 Service (计时器保活) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_HEALTH" />
+
+    <!-- Health Connect -->
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
+    <uses-permission android:name="android.permission.health.READ_CALORIES" />
+    <uses-permission android:name="android.permission.health.READ_WEIGHT" />
+
+    <application
+        android:name=".DeifyApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="Deify"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Deify">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Deify">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".data.ble.HeartRateService"
+            android:foregroundServiceType="health"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
