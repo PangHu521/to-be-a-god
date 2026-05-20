@@ -2,14 +2,12 @@ package com.deify.app.data.healthconnect
 
 import android.content.Context
 import androidx.health.connect.client.HealthConnectClient
-import androidx.health.connect.client.PermissionController
 import androidx.health.connect.client.permission.HealthPermission
 import androidx.health.connect.client.records.*
 import androidx.health.connect.client.request.AggregateRequest
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
 import java.time.Instant
-import java.time.ZoneId
 import java.time.ZonedDateTime
 
 class HealthConnectRepo(private val context: Context) {

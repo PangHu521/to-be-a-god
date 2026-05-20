@@ -24,7 +24,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.deify.app.data.local.entity.BodyMeasurement
 import com.deify.app.ui.theme.*
 import com.deify.app.util.DateUtils
-import java.time.LocalDate
 
 @Composable
 fun BodyDataScreen(viewModel: BodyDataViewModel = viewModel()) {
@@ -172,9 +171,9 @@ private fun BodyStatItem(label: String, value: String, unit: String) {
 @Composable
 private fun SimpleTrendChart(measurements: List<BodyMeasurement>) {
     if (measurements.size < 2) return
-    val first = measurements.first().weightKg
-    val last = measurements.last().weightKg
-    val diff = last - first
+    val newest = measurements.first().weightKg
+    val oldest = measurements.last().weightKg
+    val diff = newest - oldest
     val isDown = diff <= 0
 
     Row(verticalAlignment = Alignment.CenterVertically) {

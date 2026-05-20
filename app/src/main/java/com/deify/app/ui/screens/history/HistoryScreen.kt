@@ -98,7 +98,7 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
         item {
             val daysInMonth = currentMonth.lengthOfMonth()
             val firstDay = currentMonth.atDay(1).dayOfWeek.value // 1=Mon, 7=Sun
-            val offset = if (firstDay == 7) 0 else firstDay // adjust for Chinese week start
+            val offset = firstDay - 1
 
             // 星期头
             Row(modifier = Modifier.fillMaxWidth()) {

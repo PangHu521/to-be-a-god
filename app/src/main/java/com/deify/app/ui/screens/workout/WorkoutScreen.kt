@@ -29,7 +29,6 @@ import com.deify.app.domain.model.PresetTemplates
 import com.deify.app.domain.model.WorkoutTemplate
 import com.deify.app.ui.components.TimerDisplay
 import com.deify.app.ui.theme.*
-import com.deify.app.util.TimeFormatter
 
 @Composable
 fun WorkoutScreen(viewModel: WorkoutViewModel = viewModel()) {
