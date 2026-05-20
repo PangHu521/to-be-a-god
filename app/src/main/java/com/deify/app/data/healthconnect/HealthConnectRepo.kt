@@ -12,7 +12,6 @@ import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
 import java.time.Instant
 import java.time.ZonedDateTime
-import androidx.compose.foundation.layout.weight
 
 class HealthConnectRepo(private val context: Context) {
 
@@ -34,6 +33,7 @@ class HealthConnectRepo(private val context: Context) {
     }
 
     suspend fun getTodaySteps(): Long {
+
         val now = ZonedDateTime.now()
         val start = now.toLocalDate().atStartOfDay(now.zone)
 
@@ -51,6 +51,7 @@ class HealthConnectRepo(private val context: Context) {
     }
 
     suspend fun getTodayHeartRate(): List<HeartRateRecord> {
+
         val now = ZonedDateTime.now()
         val start = now.toLocalDate().atStartOfDay(now.zone)
 
@@ -68,6 +69,7 @@ class HealthConnectRepo(private val context: Context) {
     }
 
     suspend fun getTodayCalories(): Double {
+
         val now = ZonedDateTime.now()
         val start = now.toLocalDate().atStartOfDay(now.zone)
 
@@ -81,8 +83,9 @@ class HealthConnectRepo(private val context: Context) {
             )
         )
 
-        return response[TotalCaloriesBurnedRecord.ENERGY_TOTAL]
-            ?.inKilocalories ?: 0.0
+        return response[
+            TotalCaloriesBurnedRecord.ENERGY_TOTAL
+        ]?.inKilocalories ?: 0.0
     }
 
     suspend fun getLatestWeight(): WeightRecord? {
